@@ -16,6 +16,13 @@ const SidebarMenuDict = {
             value: 101,
             need_permission: false,
         },
+        {
+            title: 'NoteBook',
+            icon: <Timeline />,
+            url: '/notebook',
+            value: 101,
+            need_permission: false,
+        },
     ],
 };
 

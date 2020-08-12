@@ -11,6 +11,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Layout from './Layout';
 // Component
 const SamplePage= loadable(() => import('components/page/SamplePage'));
+const NoteBookPage = loadable(() => import('components/page/NoteBookPage'));
 // Not found
 const NotFoundPage= loadable(() => import('components/page/NotFoundPage'));
 
@@ -75,6 +76,8 @@ class App extends React.Component {
 
                                     {/* Component */}
                                     <Route path='/sample' component={SamplePage} />
+                                    <Route path='/notebook' component={NoteBookPage} />
+                                    
                                     {/* Not found */}
                                     <Route path='*' component={NotFoundPage} />
                                 </Switch>

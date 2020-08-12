@@ -15,8 +15,16 @@ const RechartsTinyChart = loadable(() => import('./RechartsTinyChart'));
 const RechartsTreeMap = loadable(() => import('./RechartsTreeMap'));
 const RechartsStackedBarChart = loadable(() => import('./RechartsStackedBarChart'));
 
+// NoteBook
+const NoteBook = loadable(() => import('./NoteBook'));
+
 export default {
     Recharts: [
+        {
+            Name: 'NoteBook',
+            Description: 'NoteBook sample',
+            Component: NoteBook,
+        },
         {
             Name: 'RechartsLineChart',
             Description: 'RechartsLineChart sample',

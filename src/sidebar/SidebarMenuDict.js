@@ -23,6 +23,13 @@ const SidebarMenuDict = {
             value: 101,
             need_permission: false,
         },
+        {
+            title: 'Test',
+            icon: <Timeline />,
+            url: '/test',
+            value: 101,
+            need_permission: false,
+        },
     ],
 };
 

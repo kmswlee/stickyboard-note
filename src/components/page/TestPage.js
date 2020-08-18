@@ -12,14 +12,14 @@ const styles = (theme) => ({
 });
 
 const initialLayout = {
-    lg: [{ i: 'NoteBook', x: 0, y: 0, w: 4, h: 6 }],
-    md: [{ i: 'NoteBook', x: 0, y: 0, w: 4, h: 6 }],
-    sm: [{ i: 'NoteBook', x: 0, y: 0, w: 4, h: 6 }],
-    xs: [{ i: 'NoteBook', x: 0, y: 0, w: 6, h: 6 }],
-    xxs: [{ i: 'NoteBook', x: 0, y: 0, w: 4, h: 6 }],
+    lg: [{ i: 'Test', x: 0, y: 0, w: 4, h: 6 }],
+    md: [{ i: 'Test', x: 0, y: 0, w: 4, h: 6 }],
+    sm: [{ i: 'Test', x: 0, y: 0, w: 4, h: 6 }],
+    xs: [{ i: 'Test', x: 0, y: 0, w: 6, h: 6 }],
+    xxs: [{ i: 'Test', x: 0, y: 0, w: 4, h: 6 }],
 };
 
-const initialBlocks = [{ i: 'NoteBook' }];
+const initialBlocks = [{ i: 'Test' }];
 
 class SamplePage extends React.Component {
     constructor(props) {

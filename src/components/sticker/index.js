@@ -6,20 +6,31 @@ import loadable from '@loadable/component';
 const RechartsLineChart = loadable(() => import('./RechartsLineChart'));
 const RechartsBarChart = loadable(() => import('./RechartsBarChart'));
 const RechartsComposedChart = loadable(() => import('./RechartsComposedChart'));
-const RechartsMultiLineChart = loadable(() => import('./RechartsMultiLineChart'));
+const RechartsMultiLineChart = loadable(() =>
+    import('./RechartsMultiLineChart')
+);
 const RechartsPieChart = loadable(() => import('./RechartsPieChart'));
 const RechartsAreaChart = loadable(() => import('./RechartsAreaChart'));
 const RechartsRadarChart = loadable(() => import('./RechartsRadarChart'));
 const RechartsScatterChart = loadable(() => import('./RechartsScatterChart'));
 const RechartsTinyChart = loadable(() => import('./RechartsTinyChart'));
 const RechartsTreeMap = loadable(() => import('./RechartsTreeMap'));
-const RechartsStackedBarChart = loadable(() => import('./RechartsStackedBarChart'));
+const RechartsStackedBarChart = loadable(() =>
+    import('./RechartsStackedBarChart')
+);
 
 // NoteBook
 const NoteBook = loadable(() => import('./NoteBook'));
+// Test.js
+const Test = loadable(() => import('./Test'));
 
 export default {
     Recharts: [
+        {
+            Name: 'Test',
+            Description: 'Test MD',
+            Component: Test,
+        },
         {
             Name: 'NoteBook',
             Description: 'NoteBook sample',

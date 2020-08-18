@@ -3,17 +3,23 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+} from 'react-router-dom';
 import loadable from '@loadable/component';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // Layout
 import Layout from './Layout';
 // Component
-const SamplePage= loadable(() => import('components/page/SamplePage'));
+const SamplePage = loadable(() => import('components/page/SamplePage'));
 const NoteBookPage = loadable(() => import('components/page/NoteBookPage'));
+const TestPage = loadable(() => import('components/page/TestPage'));
 // Not found
-const NotFoundPage= loadable(() => import('components/page/NotFoundPage'));
+const NotFoundPage = loadable(() => import('components/page/NotFoundPage'));
 
 // Dialog
 import DialogDict from 'components/dialog';
@@ -32,33 +38,37 @@ class App extends React.Component {
 
         const initialThemeKey = LocalStorageManager.getItem(
             LocalStorageConst.KEY.THEME_KEY,
-            themeKeys[0]);
-        const initialTheme = StickyBoardThemes[initialThemeKey] || StickyBoardThemes[themeKeys[0]];
+            themeKeys[0]
+        );
+        const initialTheme =
+            StickyBoardThemes[initialThemeKey] ||
+            StickyBoardThemes[themeKeys[0]];
 
         this.state = {
             selectedThemeKey: initialThemeKey,
             muiTheme: createMuiTheme(initialTheme),
-        }
+        };
     }
 
     onThemeChange = (themeKey) => {
         const selectedTheme = StickyBoardThemes[themeKey];
 
-        this.setState({
-            selectedThemeKey: themeKey,
-            muiTheme: createMuiTheme(selectedTheme)
-        }, () => {
-            LocalStorageManager.setItem(
-                LocalStorageConst.KEY.THEME_KEY,
-                themeKey);
-        });
-    }
+        this.setState(
+            {
+                selectedThemeKey: themeKey,
+                muiTheme: createMuiTheme(selectedTheme),
+            },
+            () => {
+                LocalStorageManager.setItem(
+                    LocalStorageConst.KEY.THEME_KEY,
+                    themeKey
+                );
+            }
+        );
+    };
 
     render() {
-        const {
-            selectedThemeKey,
-            muiTheme,
-        } = this.state;
+        const { selectedThemeKey, muiTheme } = this.state;
         const { dialog, hideDialog } = this.props;
 
         return (
@@ -66,20 +76,26 @@ class App extends React.Component {
                 <Router>
                     <Switch>
                         {/* other pages (Layout) */}
-                        <Route path='/'>
+                        <Route path="/">
                             <Layout
                                 themeKeys={themeKeys}
                                 selectedThemeKey={selectedThemeKey}
                                 onThemeChange={this.onThemeChange}>
                                 <Switch>
-                                    <Redirect exact from='/' to='/sample' />
+                                    <Redirect exact from="/" to="/sample" />
 
                                     {/* Component */}
-                                    <Route path='/sample' component={SamplePage} />
-                                    <Route path='/notebook' component={NoteBookPage} />
-                                    
+                                    <Route
+                                        path="/sample"
+                                        component={SamplePage}
+                                    />
+                                    <Route
+                                        path="/notebook"
+                                        component={NoteBookPage}
+                                    />
+                                    <Route path="/test" component={TestPage} />
                                     {/* Not found */}
-                                    <Route path='*' component={NotFoundPage} />
+                                    <Route path="*" component={NotFoundPage} />
                                 </Switch>
                             </Layout>
                         </Route>
@@ -102,14 +118,15 @@ class App extends React.Component {
                                 callback={dialogState.callback}
                                 onClose={() => {
                                     hideDialog(dialogKey);
-                                }} />
+                                }}
+                            />
                         );
                     } else {
                         return null;
                     }
                 })}
             </MuiThemeProvider>
-        )
+        );
     }
 }
 
